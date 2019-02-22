@@ -1,0 +1,9 @@
+<!--index.wxml-->
+<view>ex1的值为: </view>
+<view>{{ex1 || '无'}}</view>
+<view>ex2的值为: </view>
+<view>{{ex2 || '无'}}</view>
+
+<navigator url='/pages/logs/logs'>
+  <button>点我跳转到另一页面</button>
+</navigator>
