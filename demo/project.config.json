@@ -40,31 +40,31 @@
 			"current": 1,
 			"list": [
 				{
-          "id": -1,
-          "name": "随处可读写的globalData",
-          "pathName": "pages/complex/globalData/globalData",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "全局事件监听触发器",
-          "pathName": "pages/complex/mitt/mitt",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "页面预加载",
-          "pathName": "pages/complex/preload/preload",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "引入其他小程序框架",
-          "pathName": "pages/complex/omix/oData",
-          "query": "",
-          "scene": null
-        }        
+					"id": -1,
+					"name": "随处可读写的globalData",
+					"pathName": "pages/complex/globalData/globalData",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "全局事件监听触发器",
+					"pathName": "pages/complex/mitt/mitt",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "页面预加载",
+					"pathName": "pages/complex/preload/preload",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "引入其他小程序框架",
+					"pathName": "pages/complex/omix/oData",
+					"query": "",
+					"scene": null
+				}
 			]
 		}
 	}

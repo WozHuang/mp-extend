@@ -8,7 +8,7 @@
     </view>
     <view class="weui-media-box weui-media-box_text">
       <view class="weui-media-box__title weui-media-box__title_in-text">this.$globalSetData()</view>
-      <view class="weui-media-box__desc">与普通的setData一样的调用方式，但能够实现全局数据的更新，并在代码实现中充分考虑了小程序的性能瓶颈，仅在页面显示在前台时才调用setData的更新操作</view>
+      <view class="weui-media-box__desc">与普通的setData一样的调用方式，但能够实现全局数据的更新，并在代码实现中充分考虑了小程序的性能瓶颈，仅在页面显示onShow时才调用setData进行更新操作</view>
     </view>
   </view>
 </view>
