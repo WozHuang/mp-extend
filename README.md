@@ -14,13 +14,15 @@
 
 到2019年为止，小程序公测两年多了，我自参加工作半年多的时间里有超过三分之一的时间都在和小程序打交道，因为小程序框架中某些部分不完善也踩了许多的坑。后来市场上出现了一些小程序的框架，大致分为两类：使用其他技术栈开发的（[mpvue](https://github.com/Meituan-Dianping/mpvue)，[Taro](https://github.com/NervJS/taro)，[wePY](https://github.com/Tencent/wepy)）和在小程序原有框架上进行拓展的（[omix](https://github.com/Tencent/omi/tree/master/packages/omix)，[wxpage](https://github.com/Tencent/wepy)等）。
 
-由于业务上没有多端同构的需求，我对使用其他技术栈开发小程序不太感冒（小程序已经够坑了还要跳另一个坑）。但是在尝试使用小程序原生的框架时却遇到了一些问题：
+由于业务上没有多端同构的需求，我对使用其他技术栈开发小程序不太感冒（小程序已经够坑了还要跳另一个坑）。但是在尝试使用这些小程序的框架时却遇到了一些问题：
+
 1. 框架拓展了一些我不想要的方法
+
 2. 难以同时使用多个框架。
 
-为了解决以上的问题，写了mp-extend来扩展，其中参考了 Vue 的混入方法，以全局混入的方式拓展小程序的API，同时具有可定制、易扩展的特点。
+为了解决以上的问题，写了[mp-extend](https://github.com/WozHuang/mp-extend)，其中参考了 Vue 的混入方法，以全局混入的方式拓展小程序的API，同时具有可定制、易扩展、代码入侵少的优点。
 
-PS：如果对源码实现有兴趣的可以看看这篇文章
+PS：如果对[源码](https://github.com/WozHuang/mp-extend/blob/master/demo/mp-extend/mp-extend.js)实现有兴趣的可以看看
 
 ## 快速体验 ##
 
@@ -29,16 +31,51 @@ PS：如果对源码实现有兴趣的可以看看这篇文章
 ## API列表 ##
 
 - **mpExtend**(mixinOption)
+
 核心方法，提供全局混入的能力，接收一个 `mixinOption` 或 一个`[mixinOption]` 数组，
 合并策略[与Vue一致](https://cn.vuejs.org/v2/guide/mixins.html#%E9%80%89%E9%A1%B9%E5%90%88%E5%B9%B6)（合并data对象，方法优先使用页面组件定义的方法）
+
+`mixinOption`格式与小程序原有的开发模式完全相同，只是分成了APP，Page，Component三个部分
+
+```js
+{
+  App: {
+    onLaunch(option){
+      // 在App的onLaunch前调用
+    }
+    // ...
+  },
+  Page: {
+    preproccess(pageOption){
+      // 在调用Page函数前会被调用，可以用于修改所有的 pageOption
+    }
+    onLoad(option){
+      // 所有页面onLoad前调用
+    }
+  },
+  Component: {
+    created(){
+      // 所有组件created前调用
+    }
+  }
+}
+```
+
+所有的生命周期函数都会被混入到原有的Page对象中，在页面的生命周期函数之前执行
+对象类型会以递归合并的方式混入，方法优先使用Page对象中原有的方法
+
+另外还接受一个方法 `preproccess`，接收一个参数 `PageOption` ，能够用于调用Page方法前对 `PageOption` 进行修改
 	
 - **mpExtend.App**
+
 创建小程序
 
 - **mpExtend.Page**
+
 创建页面
 
 - **mpExtend.Component**
+
 创建组件
 
 > 可以直接在App方法调用前替换掉小程序原有的App、Page、Component，避免多个页面引用的麻烦
@@ -105,42 +142,54 @@ mpExtend({
 ### extend-globalData ###
 
 - **this.data.$globalData**
+
 在页面中获取到当前 app.globalData 的值
 
 - **this.$globalSetData()**
+
 与普通的setData一样的调用方式，但能够实现全局数据的更新，并在代码实现中充分考虑了小程序的性能瓶颈，仅在页面显示onShow时才调用setData进行更新操作
 
 ### extend-mitt ###
 
 - **this.$on()**
+
 监听事件
 
 - **this.$off()**
+
 取消监听事件
 
 - **this.$emit()**
+
 触发事件
 
 ### extend-preload ###
 
 - **this.$preload()**
+
 预加载指定页面的值，传入一个页面路径（与wx.navigateTo相同的url，可以带参数）
 
 - **添加onPreload生命周期**
+
 几乎与onLoad功能无异，会在页面onLoad前被调用，但可以提早用$preload预加载，在其中可以正常的使用setData和调用函数。如果页面已经加载，setData会直接调用页面的setData，如果页面未加载会把setData的数据暂存起来，等到页面加载时再调用
 
 - **添加path属性（必须）**
+
 由于小程序调用Page方法时无法获取到页面路径，只能通过添加path属性对页面进行分辨，需要与app.json中的页面路径相同
 
 ### extend-oData ###
+
 > 作为引入其他的小程序框架的示例, 这里引入了 omi (https://github.com/Tencent/omi) 中的 omix
 
 - **this.oData**
-	this.data的一个副本，直接修改oData会自动调用this.setData，如 
-	```js
-	this.oData.msg = 'hello';
-	```
-	等价于
-	```js
-	this.setData({ msg: 'hello'});
+this.data的一个副本，直接修改oData会自动调用this.setData，如 
+
+```js
+this.oData.msg = 'hello';
+```
+	
+等价于
+	
+```js
+this.setData({ msg: 'hello'});
 ```
