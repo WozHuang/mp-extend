@@ -1,0 +1,12 @@
+<!--pages/complex/globalData2.wxml-->
+<view class="weui-panel weui-panel_access">
+  <view class="weui-panel__hd">测试一下</view>
+  <view class="weui-panel__bd">
+    <view class="weui-media-box weui-media-box_text">
+      <view class="weui-media-box__title weui-media-box__title_in-text">当前 app.globalData 的值：</view>
+      <view class="weui-media-box__desc">{{$globalData.userInfo || '无'}}</view>
+    </view>
+  </view>
+  <button bindtap='changeGlobalData'>点我修改globalData的值</button>
+  <button bindtap='navigateBack'>返回上一页查看globalData的值</button>
+</view>

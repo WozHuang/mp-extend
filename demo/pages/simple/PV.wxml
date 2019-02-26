@@ -1,0 +1,10 @@
+<!--pages/test/PV.wxml-->
+<view class="weui-panel weui-panel_access">
+  <view class="weui-panel__hd">在Page.onLoad会在页面的onLoad之前执行</view>
+  <view class="weui-panel__bd">
+    <view class="weui-media-box weui-media-box_text">
+      <view class="weui-media-box__title weui-media-box__title_in-text">控制台中会输出PV记录</view>
+      <view class="weui-media-box__desc">类似的，extend-navigateTo为所有的Page添加了navigateTo方法，因此在这个小程序中都是使用 bindtap='navigateTo' data-url='/pages/xxx/xxx'的形式跳转</view>
+    </view>
+  </view>
+</view>

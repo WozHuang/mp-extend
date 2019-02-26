@@ -1,9 +1,75 @@
 <!--index.wxml-->
-<view>ex1的值为: </view>
-<view>{{ex1 || '无'}}</view>
-<view>ex2的值为: </view>
-<view>{{ex2 || '无'}}</view>
+<view class="page">
+  <view class="page__hd">
+    <view class="page__title">mp-extend</view>
+    <view class="page__desc">可定制，易扩展的混入式小程序框架</view>
+  </view>
+  <view class="page__bd">
+    <view class="weui-panel weui-panel_access">
+      <view class="weui-panel__hd">简单尝试</view>
+      <view class="weui-panel__bd">
+        <view class="weui-media-box weui-media-box_text" bindtap='navigateTo' data-url='/pages/simple/data' hover-class='navigator-hover'>
+          <view class="weui-media-box__title weui-media-box__title_in-text">全局data混入</view>
+          <view class="weui-media-box__desc">在拓展的中定义的Page.data会混入到页面自身的data</view>
+          <view class="weui-media-box__info">
+            <view class="weui-media-box__info__meta">相关代码：</view>
+            <view class="weui-media-box__info__meta">extend-data.js</view>
+          </view>
+        </view>
+        <view class="weui-media-box weui-media-box_text" bindtap='navigateTo' data-url='/pages/simple/PV' hover-class='navigator-hover'>
+          <view class="weui-media-box__title weui-media-box__title_in-text">页面PV统计</view>
+          <view class="weui-media-box__desc">在拓展中定义Page.onLoad，以便在每个页面加载时进行PV统计</view>
+          <view class="weui-media-box__info">
+            <view class="weui-media-box__info__meta">相关代码：</view>
+            <view class="weui-media-box__info__meta">extend-PV.js</view>
+          </view>
+        </view>
+      </view>
+    </view>
 
-<navigator url='/pages/logs/logs'>
-  <button>点我跳转到另一页面</button>
-</navigator>
+    <view class="weui-panel weui-panel_access">
+      <view class="weui-panel__hd">进阶使用</view>
+      <view class="weui-panel__bd">
+        <view class="weui-media-box weui-media-box_text" bindtap='navigateTo' data-url='/pages/complex/page/page' hover-class='navigator-hover'>
+          <view class="weui-media-box__title weui-media-box__title_in-text">获取所有页面实例</view>
+          <view class="weui-media-box__info">
+            <view class="weui-media-box__info__meta">相关代码：</view>
+            <view class="weui-media-box__info__meta">extend-page.js</view>
+          </view>
+        </view>
+        <view class="weui-media-box weui-media-box_text" bindtap='navigateTo' data-url='/pages/complex/globalData/globalData' hover-class='navigator-hover'>
+          <view class="weui-media-box__title weui-media-box__title_in-text">随处可读写的globalData</view>
+          <view class="weui-media-box__info">
+            <view class="weui-media-box__info__meta">相关代码：</view>
+            <view class="weui-media-box__info__meta">extend-globalData.js</view>
+          </view>
+        </view>
+        <view class="weui-media-box weui-media-box_text" bindtap='navigateTo' data-url='/pages/complex/mitt/mitt' hover-class='navigator-hover'>
+          <view class="weui-media-box__title weui-media-box__title_in-text">全局事件监听触发器</view>
+          <view class="weui-media-box__info">
+            <view class="weui-media-box__info__meta">相关代码：</view>
+            <view class="weui-media-box__info__meta">extend-mitt.js</view>
+          </view>
+        </view>
+        <view class="weui-media-box weui-media-box_text" bindtap='navigateTo' data-url='/pages/complex/preload/preload' hover-class='navigator-hover'>
+          <view class="weui-media-box__title weui-media-box__title_in-text">页面预加载</view>
+          <view class="weui-media-box__info">
+            <view class="weui-media-box__info__meta">相关代码：</view>
+            <view class="weui-media-box__info__meta">extend-preload.js</view>
+          </view>
+        </view>
+        <view class="weui-media-box weui-media-box_text" bindtap='navigateTo' data-url='/pages/complex/omix/oData' hover-class='navigator-hover'>
+          <view class="weui-media-box__title weui-media-box__title_in-text">引入其他小程序框架(omix)</view>
+          <view class="weui-media-box__info">
+            <view class="weui-media-box__info__meta">相关代码：</view>
+            <view class="weui-media-box__info__meta">extend-oData.js</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="weui-footer">
+    <view class="weui-footer__text">相关代码可以在根目录 mp-extend 文件夹中找到</view>
+    <view class="weui-footer__text">本demo小程序使用 weUI 进行样式布局</view>
+  </view>
+</view>

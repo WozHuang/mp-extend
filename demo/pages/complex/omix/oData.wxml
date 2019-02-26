@@ -1,0 +1,16 @@
+<!--pages/complex/omix/oData.wxml-->
+<view class="weui-panel weui-panel_access">
+  <view class="weui-panel__hd">引入其他的小程序框架示例</view>
+  <view class="weui-panel__hd">这里引入了 omi (https://github.com/Tencent/omi) 中的 omix</view>
+  <view class="weui-panel__bd">
+    <view class="weui-media-box weui-media-box_text">
+      <view class="weui-media-box__title weui-media-box__title_in-text">this.oData</view>
+      <view class="weui-media-box__desc">this.data的一个副本，直接对修改oData会自动调用this.setData</view>
+    </view>
+    <view class="weui-media-box weui-media-box_text">
+      <view class="weui-media-box__title weui-media-box__title_in-text">当前页面数据：</view>
+      <view class="weui-media-box__desc">{{ msg || '无' }}</view>
+    </view>
+  </view>
+  <button bindtap='changeMsg'>点我修改oData的值</button>
+</view>

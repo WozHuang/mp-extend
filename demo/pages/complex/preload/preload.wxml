@@ -1,0 +1,45 @@
+<!--pages/complex/preload.wxml-->
+<view class="weui-panel weui-panel_access">
+  <view class="weui-panel__hd">提供主动预加载的功能，减少加载时间</view>
+  <view class="weui-panel__hd">可以尝试修改 /utils/api-test.js 中的响应时间测试在不同网络下的效果</view>
+  <view class="weui-panel__bd">
+    <view class="weui-media-box weui-media-box_text">
+      <view class="weui-media-box__title weui-media-box__title_in-text">this.$preload()</view>
+      <view class="weui-media-box__desc">预加载指定页面的值，传入一个页面路径（与wx.navigateTo相同的url，可以带参数）</view>
+    </view>
+    <view class="weui-media-box weui-media-box_text">
+      <view class="weui-media-box__title weui-media-box__title_in-text">添加onPreload生命周期</view>
+      <view class="weui-media-box__desc">几乎与onLoad功能无异，会在页面onLoad前被调用，但可以提早用$preload预加载，在其中可以正常的使用setData和调用函数。如果页面已经加载，setData会直接调用页面的setData，如果页面未加载会把setData的数据暂存起来，等到页面加载时再调用</view>
+    </view>
+    <view class="weui-media-box weui-media-box_text">
+      <view class="weui-media-box__title weui-media-box__title_in-text">添加path属性（必须）</view>
+      <view class="weui-media-box__desc">由于小程序调用Page方法时无法获取到页面路径，只能通过添加path属性对页面进行分辨，需要与app.json中的页面路径相同</view>
+    </view>
+  </view>
+</view>
+
+<view class="weui-panel weui-panel_access">
+  <view class="weui-panel__hd">测试一下</view>
+  <view class="weui-panel__bd">
+    <view class="weui-media-box weui-media-box_text weui-cell_link" bindtap='navigateTo' data-url='{{url1}}' hover-class='navigator-hover'>
+      <view class="weui-media-box__title weui-media-box__title_in-text">提前预加载的页面</view>
+      <view class="weui-media-box__desc">尽早使用$preload预加载可以大幅提高呈现速度</view>
+    </view>
+    <view class="weui-media-box weui-media-box_text weui-cell_link" bindtap='toPreload2' hover-class='navigator-hover'>
+      <view class="weui-media-box__title weui-media-box__title_in-text">点击时才开始预加载的页面</view>
+      <view class="weui-media-box__desc">无法提早太多哪怕只在跳转前预加载也能有一定效果</view>
+    </view>
+    <view class="weui-media-box weui-media-box_text weui-cell_link" bindtap='toPreload3' hover-class='navigator-hover'>
+      <view class="weui-media-box__title weui-media-box__title_in-text">没有预加载的页面</view>
+      <view class="weui-media-box__desc">会有一段没有数据的时间</view>
+    </view>
+  </view>
+  <view class="weui-panel__ft">
+    <view class="weui-cell weui-cell_access weui-media-box__desc">
+      <view class="weui-cell__bd">注1：目前的实现中预加载的数据都是存在对象里的，如果预加载大量数据会导致内存占用增加，建议只用onPreload来加载首屏数据，其他数据仍在onLoad阶段加载</view>
+    </view>
+    <view class="weui-cell weui-cell_access weui-media-box__desc">
+      <view class="weui-cell__bd">注2：目前重复使用$preload预加载页面第二次会覆盖第一次加载的数据，短时间内多次调用可能会有重复的setData操作，应当避免</view>
+    </view>
+  </view>
+</view>

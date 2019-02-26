@@ -1,0 +1,9 @@
+<!--pages/complex/preload/preload3.wxml-->
+<view class="weui-panel weui-panel_access">
+  <view class="weui-panel__hd">没有预加载的页面</view>
+  <view class="weui-panel__bd">
+    <view class="weui-media-box weui-media-box_text">
+      <view class="weui-media-box__desc" wx:for="{{list}}" wx:key="*this">{{item}}</view>
+    </view>
+  </view>
+</view>

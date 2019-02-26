@@ -1,4 +1,0 @@
-<view>ex1的值为: </view>
-<view>{{ex1 || '无'}}</view>
-<view>ex2的值为: </view>
-<view>{{ex2 || '无'}}</view>

@@ -1,3 +1,8 @@
+/*!
+ * mp-extend v1.0.0 (https://github.com/WozHuang/mp-extend)
+ * Licensed under the MIT license
+ */
+
 // 可以用于拓展的生命周期
 const life = {
   App: ['preproccess', 'onLaunch', 'onShow', 'onHide', 'onError'],
@@ -44,7 +49,6 @@ let MpExtend = function (param) {
         delete option[key];
       }
     }
-
     // 把剩余的属性混入到基类中
     mixin(base[constructorName], option);
   }
@@ -95,13 +99,17 @@ function decorate(f, ...decorators) {
  */
 function mixin(o, ...mixs) {
   mixs.forEach(mix => {
-    for (let key in mix) {
+    for (const key in mix) {
       // 两个属性都是对象则递归合并
       if (isObject(o[key]) && isObject(mix[key])) {
         mixin(o[key], mix[key]);
       } else {
-        o[key] = mix[key];
+        o[key] = o[key] || mix[key];
       }
+    }
+    // 拷贝symbol类型，（可惜小程序不支持）
+    for (const sym of Object.getOwnPropertySymbols(mix)) {
+      o[sym] = o[sym] || mix[sym];
     }
   });
   return o;
@@ -125,6 +133,7 @@ Object.assign(MpExtend, {
   App: _App,
   Page: _Page,
   Component: _Component,
+  warning,
   tips: true
 });
-module.exports = MpExtend;
+export default MpExtend;

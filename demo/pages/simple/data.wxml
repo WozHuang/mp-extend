@@ -1,0 +1,17 @@
+<view class="weui-panel weui-panel_access">
+  <view class="weui-panel__hd">Page.data会被混入到所有页面的data中</view>
+  <view class="weui-panel__bd">
+    <view class="weui-media-box weui-media-box_text">
+      <view class="weui-media-box__title weui-media-box__title_in-text">来自extend-data混入的ex1：</view>
+      <view class="weui-media-box__desc">{{ex1 || '无'}}</view>
+    </view>
+    <view class="weui-media-box weui-media-box_text">
+      <view class="weui-media-box__title weui-media-box__title_in-text">来自extend-data混入的ex2：</view>
+      <view class="weui-media-box__desc">{{ex2 || '无'}}</view>
+    </view>
+    <view class="weui-media-box weui-media-box_text">
+      <view class="weui-media-box__title weui-media-box__title_in-text">页面自身的data.str：</view>
+      <view class="weui-media-box__desc">{{str || '无'}}</view>
+    </view>
+  </view>
+</view>

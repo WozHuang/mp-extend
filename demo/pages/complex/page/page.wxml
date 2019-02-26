@@ -1,0 +1,16 @@
+<!--pages/complex/page.wxml-->
+<view class="weui-panel weui-panel_access">
+  <view class="weui-panel__hd">对页面实例进行记录，并提供两个api</view>
+  <view class="weui-panel__hd">这两个api本身用处不大，但是能够为其他的混入方法提供便利</view>
+  <view class="weui-panel__bd">
+    <view class="weui-media-box weui-media-box_text">
+      <view class="weui-media-box__title weui-media-box__title_in-text">this.$getAllPage()</view>
+      <view class="weui-media-box__desc">以path为key值，所有存在path属性的页面创建时所用的option，都会被保存在一个对象中，返回这个对象</view>
+    </view>
+    <view class="weui-media-box weui-media-box_text">
+      <view class="weui-media-box__title weui-media-box__title_in-text">this.$getCurrentPages()</view>
+      <view class="weui-media-box__desc">以页面的__route__属性为key值，把所有已经创建的页面实例都会被保存在一个对象中</view>
+      <view class="weui-media-box__desc">与小程序自带的getCurrentPages不同的是它返回一个对象，而且包括所有已创建的tab页（getCurrentPages不包括所有tab页）</view>
+    </view>
+  </view>
+</view>

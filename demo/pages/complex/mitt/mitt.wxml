@@ -1,0 +1,35 @@
+<!--pages/complex/mitt.wxml-->
+<view class="weui-panel weui-panel_access">
+  <view class="weui-panel__hd">将mitt混入到全局中，在所有页面中能使用同一个事件监听触发器</view>
+  <view class="weui-panel__hd">直接使用了mitt （https://www.npmjs.com/package/mitt），api使用方式完全相同</view>
+  <view class="weui-panel__bd">
+    <view class="weui-media-box weui-media-box_text">
+      <view class="weui-media-box__title weui-media-box__title_in-text">this.$on()</view>
+      <view class="weui-media-box__desc">监听事件</view>
+    </view>
+    <view class="weui-media-box weui-media-box_text">
+      <view class="weui-media-box__title weui-media-box__title_in-text">this.$off()</view>
+      <view class="weui-media-box__desc">取消监听事件</view>
+    </view>
+    <view class="weui-media-box weui-media-box_text">
+      <view class="weui-media-box__title weui-media-box__title_in-text">this.$emit()</view>
+      <view class="weui-media-box__desc">触发事件</view>
+    </view>
+  </view>
+</view>
+
+<view class="weui-panel weui-panel_access">
+  <view class="weui-panel__hd">测试一下</view>
+  <view class="weui-panel__bd">
+    <view class="weui-media-box weui-media-box_text">
+      <view class="weui-media-box__title weui-media-box__title_in-text">当前 data.mitt_data 的值：</view>
+      <view class="weui-media-box__desc">{{mitt_data || '无'}}</view>
+    </view>
+  </view>
+  <view class="weui-panel__ft">
+    <view class="weui-cell weui-cell_access weui-cell_link">
+      <view class="weui-cell__bd" bindtap='navigateTo' data-url='/pages/complex/mitt/mitt2' hover-class='navigator-hover'>点我跳转到另一个测试页面</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </view>
+  </view>
+</view>

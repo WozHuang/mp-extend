@@ -7,6 +7,6 @@ Page({
 
   },
   onLoad: function () {
-
-  }
+    
+  },
 })

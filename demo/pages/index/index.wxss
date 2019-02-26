@@ -19,3 +19,7 @@
 .usermotto {
   margin-top: 200px;
 }
+
+.weui-footer{
+  padding-bottom:20px;
+}

@@ -1,0 +1,6 @@
+<!--pages/complex/mitt2.wxml-->
+<view class="weui-panel weui-panel_access">
+  <view class="weui-panel__hd">测试一下</view>
+  <button bindtap='emit'>点我触发事件mitt-test</button>
+  <button bindtap='navigateBack'>返回上一页查看</button>
+</view>

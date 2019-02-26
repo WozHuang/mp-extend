@@ -1,0 +1,6 @@
+/* pages/complex/preload.wxss */
+.weui-media-box__desc{
+  text-indent: 30rpx;
+  margin-top:10rpx;
+  -webkit-line-clamp:8;
+}

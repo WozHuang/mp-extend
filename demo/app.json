@@ -1,12 +1,24 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/simple/data",
+    "pages/simple/PV",
+    "pages/complex/page/page",
+    "pages/complex/globalData/globalData",
+    "pages/complex/globalData/globalData2",
+    "pages/complex/preload/preload",
+    "pages/complex/mitt/mitt",
+    "pages/complex/mitt/mitt2",
+    "pages/complex/preload/preload1",
+    "pages/complex/preload/preload2",
+    "pages/complex/preload/preload3",
+    "pages/complex/omix/oData"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#f8f8f8",
+    "backgroundColor": "#f8f8f8",
+    "navigationBarTitleText": "mp-extend",
+    "navigationBarTextStyle": "black"
   }
 }

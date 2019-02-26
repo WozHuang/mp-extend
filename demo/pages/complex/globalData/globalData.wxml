@@ -1,0 +1,30 @@
+<!--pages/complex/globalData.wxml-->
+<view class="weui-panel weui-panel_access">
+  <view class="weui-panel__hd">将app.globalData注入到所有页面中，并提供全局setData的能力</view>
+  <view class="weui-panel__bd">
+    <view class="weui-media-box weui-media-box_text">
+      <view class="weui-media-box__title weui-media-box__title_in-text">this.data.$globalData</view>
+      <view class="weui-media-box__desc">在页面中获取到当前 app.globalData 的值</view>
+    </view>
+    <view class="weui-media-box weui-media-box_text">
+      <view class="weui-media-box__title weui-media-box__title_in-text">this.$globalSetData()</view>
+      <view class="weui-media-box__desc">与普通的setData一样的调用方式，但能够实现全局数据的更新，并在代码实现中充分考虑了小程序的性能瓶颈，仅在页面显示在前台时才调用setData的更新操作</view>
+    </view>
+  </view>
+</view>
+
+<view class="weui-panel weui-panel_access">
+  <view class="weui-panel__hd">测试一下</view>
+  <view class="weui-panel__bd">
+    <view class="weui-media-box weui-media-box_text">
+      <view class="weui-media-box__title weui-media-box__title_in-text">当前 app.globalData 的值：</view>
+      <view class="weui-media-box__desc">{{$globalData.userInfo || '无'}}</view>
+    </view>
+  </view>
+  <view class="weui-panel__ft">
+    <view class="weui-cell weui-cell_access weui-cell_link">
+      <view class="weui-cell__bd" bindtap='navigateTo' data-url='/pages/complex/globalData/globalData2' hover-class='navigator-hover'>点我跳转到另一个测试页面</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </view>
+  </view>
+</view>
