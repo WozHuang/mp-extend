@@ -11,7 +11,7 @@ function parseUrl(url) {
     // 相对路径
     const pages = getCurrentPages()
     const currentPage = pages[pages.length-1];
-    path = currentPage.__route
+    path = currentPage.__route__.replace(/(.+\/)[^\/]+/, `$1${path}`)
   }
 
   if (!search) return query;

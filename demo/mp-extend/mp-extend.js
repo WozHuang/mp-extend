@@ -82,7 +82,6 @@ const _Component = decorate(Component, function (option) {
 // 在调用原函数之前调用所有装饰器
 function decorate(f, ...decorators) {
   return function () {
-    // debugger
     for (const decorator of decorators) {
       decorator && decorator.apply(this, arguments);
     }

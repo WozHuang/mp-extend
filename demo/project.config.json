@@ -12,13 +12,12 @@
 		"autoAudits": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.6.0",
-	"appid": "wxabf2cb26e342d62e",
+	"libVersion": "2.6.1",
+	"appid": "touristappid",
 	"projectname": "mp-extend",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
-	"isGameTourist": false,
 	"condition": {
 		"search": {
 			"current": -1,
@@ -28,44 +27,13 @@
 			"current": -1,
 			"list": []
 		},
-		"plugin": {
-			"current": -1,
-			"list": []
-		},
 		"game": {
 			"currentL": -1,
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
-			"list": [
-				{
-					"id": -1,
-					"name": "随处可读写的globalData",
-					"pathName": "pages/complex/globalData/globalData",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "全局事件监听触发器",
-					"pathName": "pages/complex/mitt/mitt",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "页面预加载",
-					"pathName": "pages/complex/preload/preload",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "引入其他小程序框架",
-					"pathName": "pages/complex/omix/oData",
-					"query": "",
-					"scene": null
-				}
-			]
+			"current": -1,
+			"list": []
 		}
 	}
 }
