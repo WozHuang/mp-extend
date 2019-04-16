@@ -21,6 +21,13 @@
       <view class="weui-media-box__desc">{{$globalData.userInfo || '无'}}</view>
     </view>
   </view>
+  <view class="weui-panel__bd">
+    <view class="weui-media-box weui-media-box_text">
+      <view class="weui-media-box__title weui-media-box__title_in-text">在app.js中调用 $globalSetData：</view>
+      <view class="weui-media-box__desc">$globalData.testData：{{$globalData.testData}}</view>
+      <view class="weui-media-box__desc">$globalData.testData2：{{$globalData.testData2}}</view>
+    </view>
+  </view>
   <view class="weui-panel__ft">
     <view class="weui-cell weui-cell_access weui-cell_link">
       <view class="weui-cell__bd" bindtap='navigateTo' data-url='/pages/complex/globalData/globalData2' hover-class='navigator-hover'>点我跳转到另一个测试页面</view>

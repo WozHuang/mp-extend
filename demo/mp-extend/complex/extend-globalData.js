@@ -1,5 +1,5 @@
 // 将app.globalData注入到所有页面的data.$globalData中
-// 并提供this.$global.setData的方法修改 globalData
+// 并提供this.$globalSetData的方法修改 globalData
 
 let appInstance = null;
 
@@ -11,13 +11,33 @@ export default {
   App: {
     onLaunch() {
       appInstance = this
-    }
+    },
+
+    $globalSetData(o) {
+      const pages = getCurrentPages();
+      if (pages.length === 0) {
+        // 如果还没有页面实例化，把 globalSetData 的数据暂存起来
+        this[$globalSetDataArray].push(o);
+      } else {
+        // 如果已经有实例化的页面，直接对前台页面 globalSetData
+        pages[pages.length - 1].$globalSetData(o);
+      }
+    },
+
+    // 在还没有实例化的页面时用于暂存
+    [$globalSetDataArray]: [],
   },
   Page: {
     onLoad() {
       this.setData({
         $globalData: appInstance.globalData
       })
+
+      // 保证在页面未创建时进行 $globalSetData 也能影响到所有页面
+      appInstance[$globalSetDataArray].forEach(obj => {
+        this.$globalSetData(obj);
+      });
+      appInstance[$globalSetDataArray] = [];
     },
 
     // 根据小程序文档中描述，所有非显示的页面都不应当调用setData

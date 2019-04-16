@@ -26,7 +26,7 @@ PS：如果对[源码](https://github.com/WozHuang/mp-extend/blob/master/demo/mp
 
 ## 快速体验 ##
 
-使用微信开发者工具打开[demo](https://github.com/WozHuang/mp-extend/tree/master/demo)文件夹中的小程序或者直接使用微信提供的的[代码片段](https://developers.weixin.qq.com/s/SBKQnumQ7L6m)功能导入项目。
+使用微信开发者工具打开[demo](https://github.com/WozHuang/mp-extend/tree/master/demo)文件夹中的小程序或者直接使用微信提供的的[代码片段](https://developers.weixin.qq.com/s/W5I8jFmY7D73)功能导入项目。
 
 ## API列表 ##
 
