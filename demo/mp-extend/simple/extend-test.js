@@ -9,7 +9,7 @@ export default [
       globalData: {
         globalEx1: 'extend 1: 我是混入到全局变量中的值'
       },
-      preproccess(option) {
+      preprocess(option) {
         log('extend 1： 预处理，调用了App方法, 参数为', option)
         // 此时可以修改option的值
         // PS： 这是this也指向option，使用this修改更利于阅读
@@ -18,7 +18,7 @@ export default [
       }
     },
     Page: {
-      preproccess(option) {
+      preprocess(option) {
         log('extend 1： 预处理，调用了Page方法, 参数为', option)
       },
       onLoad() {

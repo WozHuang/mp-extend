@@ -5,9 +5,9 @@
 
 // 可以用于拓展的生命周期
 const life = {
-  App: ['preproccess', 'onLaunch', 'onShow', 'onHide', 'onError'],
-  Page: ['preproccess', 'onLoad', 'onReady', 'onShow', 'onHide', 'onUnload', 'onPullDownRefresh', 'onReachBottom', 'onShareAppMessage'],
-  Component: ['preproccess', 'created', 'attached', 'ready', 'moved', 'detached', 'error']
+  App: ['preprocess', 'onLaunch', 'onShow', 'onHide', 'onError'],
+  Page: ['preprocess', 'onLoad', 'onReady', 'onShow', 'onHide', 'onUnload', 'onPullDownRefresh', 'onReachBottom', 'onShareAppMessage'],
+  Component: ['preprocess', 'created', 'attached', 'ready', 'moved', 'detached', 'error']
 };
 
 // 用于保存所有的拓展生命周期函数
@@ -61,21 +61,21 @@ const _App = decorate(App, function (option) {
   for (const lifeTime of life.App) {
     option[lifeTime] = decorate(option[lifeTime], ...lifeMixin.App[lifeTime]);
   }
-  option['preproccess'] && option['preproccess'].call(option, option);
+  option['preprocess'] && option['preprocess'].call(option, option);
 });
 const _Page = decorate(Page, function (option) {
   mixin(option, base.Page);
   for (const lifeTime of life.Page) {
     option[lifeTime] = decorate(option[lifeTime], ...lifeMixin.Page[lifeTime]);
   }
-  option['preproccess'] && option['preproccess'].call(option, option);
+  option['preprocess'] && option['preprocess'].call(option, option);
 });
 const _Component = decorate(Component, function (option) {
   mixin(option, base.Component);
   for (const lifeTime of life.Component) {
     option[lifeTime] = decorate(option[lifeTime], ...lifeMixin.Component[lifeTime]);
   }
-  option['preproccess'] && option['preproccess'].call(option, option);
+  option['preprocess'] && option['preprocess'].call(option, option);
 });
 
 // 装饰函数

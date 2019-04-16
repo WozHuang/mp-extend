@@ -7,7 +7,7 @@ let currentPages = {}
 
 export default {
   Page: {
-    preproccess(option){
+    preprocess(option){
       if(option.path){
         pages[option.path] = option
       }

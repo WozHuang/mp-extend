@@ -26,7 +26,7 @@ PS：如果对[源码](https://github.com/WozHuang/mp-extend/blob/master/demo/mp
 
 ## 快速体验 ##
 
-使用微信开发者工具打开[demo](https://github.com/WozHuang/mp-extend/tree/master/demo)文件夹中的小程序或者直接使用微信提供的的[代码片段](https://developers.weixin.qq.com/s/W5I8jFmY7D73)功能导入项目。
+使用微信开发者工具打开[demo](https://github.com/WozHuang/mp-extend/tree/master/demo)文件夹中的小程序或者直接使用微信提供的的[代码片段](https://developers.weixin.qq.com/s/6vJNKFmV777M)功能导入项目。
 
 ## API列表 ##
 
@@ -46,7 +46,7 @@ PS：如果对[源码](https://github.com/WozHuang/mp-extend/blob/master/demo/mp
 	    // ...
 	  },
 	  Page: {
-	    preproccess(pageOption){
+	    preprocess(pageOption){
 	      // 在调用Page函数前会被调用，可以用于修改所有的 pageOption
 	    }
 	    onLoad(option){
@@ -64,7 +64,7 @@ PS：如果对[源码](https://github.com/WozHuang/mp-extend/blob/master/demo/mp
 	所有的生命周期函数都会被混入到原有的Page对象中，在页面的生命周期函数之前执行
 	对象类型会以递归合并的方式混入，方法优先使用Page对象中原有的方法
 	
-	另外还接受一个方法 `preproccess`，接收一个参数 `PageOption` ，能够用于调用Page方法前对 `PageOption` 进行修改
+	另外还接受一个方法 `preprocess`，接收一个参数 `PageOption` ，能够用于调用Page方法前对 `PageOption` 进行修改
 	
 - **mpExtend.App**
 
